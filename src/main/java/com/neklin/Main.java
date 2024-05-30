@@ -9,12 +9,13 @@ public class Main {
         System.out.println("Calculator");
         System.out.println("Write first number, second number, action");
         System.out.println("example: 1   2   \nplus/minus/multiply/divide");
-        System.out.println("write numbers:");
         Scanner scanner = new Scanner(System.in);
-        Calculator calculator = new Calculator(scanner.nextInt(), scanner.nextInt());
-        System.out.println("write action");
+        Calculator calculator = new Calculator();
+        System.out.println("write first number, second number, action");
+        float firstNumber = scanner.nextFloat();
+        float secondNumber = scanner.nextFloat();
         String action = scanner.next();
-        calculator.Calculate(action);
+        calculator.Calculate(firstNumber, secondNumber, action);
         calculator.getResult();
     }
 }

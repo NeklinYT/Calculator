@@ -8,21 +8,14 @@ public class Calculator {
     private String action;
 
 
-//    public Calculator(String action, int firstNumber, int secondNumber, int thirdNumber) {
-//        this.firstNumber = firstNumber;
-//        this.secondNumber = secondNumber;
-//        this.thirdNumber = thirdNumber;
-//        this.action = action;
-//    }
+    public Calculator() {
 
-    public Calculator(float firstNumber, float secondNumber) {
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-//        this.action = action;
     }
 
-    public float Calculate(String action) {
+    public float Calculate(float firstNumber, float secondNumber, String action) {
         this.action = action;
+        this.firstNumber = firstNumber;
+        this.secondNumber = secondNumber;
         switch (action) {
             case "plus":
                 result = firstNumber + secondNumber;

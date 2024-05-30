@@ -1,23 +1,29 @@
 package com.neklin;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MainTest {
+
+    private Calculator calculator;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
+
     @Test
     void normalDivideTest() {
-        Calculator calculator0 = new Calculator(8, 4);
-        float answer = calculator0.Calculate("divide");
+        float answer = calculator.Calculate(8, 4, "divide");
         Assertions.assertEquals(2, answer);
     }
     @Test
     void divideByZeroTest() {
-        Calculator calculator1 = new Calculator(8, 0);
-        Assertions.assertThrows(ArithmeticException.class, () -> calculator1.Calculate("divide"));
+        Assertions.assertThrows(ArithmeticException.class, () -> calculator.Calculate(8, 0, "divide"));
     }
     @Test
     void multiplyByZeroTest() {
-        Calculator calculator2 = new Calculator(8, 0);
-        Assertions.assertThrows(ArithmeticException.class, () -> calculator2.Calculate("multiply"));
+        Assertions.assertThrows(ArithmeticException.class, () -> calculator.Calculate(8, 0, "multiply"));
     }
 }
