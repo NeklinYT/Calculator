@@ -15,4 +15,9 @@ class MainTest {
         Calculator calculator1 = new Calculator(8, 0);
         Assertions.assertThrows(ArithmeticException.class, () -> calculator1.Calculate("divide"));
     }
+    @Test
+    void multiplyByZeroTest() {
+        Calculator calculator2 = new Calculator(8, 0);
+        Assertions.assertThrows(ArithmeticException.class, () -> calculator2.Calculate("multiply"));
+    }
 }

@@ -31,7 +31,12 @@ public class Calculator {
                 result = firstNumber - secondNumber;
                 break;
             case "multiply":
-                result = firstNumber * secondNumber;
+                if (firstNumber == 0 || secondNumber == 0) {
+                    throw new ArithmeticException("Cannot multiply by zero");
+                }
+                else {
+                    result = firstNumber * secondNumber;
+            }
                 break;
             case "divide":
                 if (firstNumber == 0 || secondNumber == 0) {
