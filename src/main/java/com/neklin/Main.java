@@ -4,18 +4,30 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO Calculator с тремя числами
-        // TODO Числа не должны передаватся при создании обьекта из класса Calculator
+        // TODO
         System.out.println("Calculator");
-        System.out.println("Write first number, second number, action");
-        System.out.println("example: 1   2   \nplus/minus/multiply/divide");
+        System.out.println("Write first number, second number, third number(if you like),  action");
+        System.out.println("example: 1   2  3 \nplus/minus/multiply/divide");
+        System.out.println("Do you like write three numbers? (y/n)");
+        int amount = 2;
+        Calculator calculator = getCalculator();
+        calculator.getResult();
+    }
+
+    private static Calculator getCalculator() {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
-        System.out.println("write first number, second number, action");
+        char amountAnswer = scanner.next().charAt(0);
         float firstNumber = scanner.nextFloat();
         float secondNumber = scanner.nextFloat();
-        String action = scanner.next();
-        calculator.Calculate(firstNumber, secondNumber, action);
-        calculator.getResult();
+        if (amountAnswer == 'y') {
+            float thirdNumber = scanner.nextFloat();
+            String action = scanner.next();
+            calculator.Calculate(firstNumber, secondNumber, thirdNumber, action);
+        } else {
+            String action = scanner.next();
+            calculator.Calculate(firstNumber, secondNumber, action);
+        }
+        return calculator;
     }
 }
